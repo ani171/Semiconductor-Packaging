@@ -50,9 +50,9 @@
 - Options for interconnections - Wirebond(Stitch type), Bump/Solder
 
 #### Anatomy of packages
--Leadframe - a thin metal frame that holds the silicon die and connects it to the outside world
+- Leadframe - a thin metal frame that holds the silicon die and connects it to the outside world
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/6e1b71fe-7428-4ba8-b433-f2156fd5dad2" />
-- Laminate
+- Laminate - organic substrate with coarse metal routing and ground planes, used to interconnect die bumps to BGA balls and the PCB
 - Advanced package substrates
     1. 2D Layer
          - Two dies placed on the same substrate (e.g., FCBGA)
@@ -68,9 +68,11 @@
           - Designed to support multiple chips, while RDL works well for 2 dies, but becomes complex beyond that
           - Organic interposer has dedicated power and ground planes
     4. 2.5 D
-          - Uses an active silicon interposer
+          - Uses an silicon interposer
+          - Passive TSV interposer, while in 3D we use an active TSV interposer 
           - Silicon interposer with very fine metal layers, allowing signal lines to be routed extremely close to ground planes, enabling controlled impedance
           - Fine metal routing + close ground planes create short return paths, reducing noise and crosstalk
           - Compared to organic substrates with coarse metal and distant ground planes, 2.5D achieves much higher bandwidth and signal integrity
           - Example - CoWoS (Chip on Wafer on Substrate)
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/949ef62d-97d3-4504-9a24-a3872fadc33f" />
+
