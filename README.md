@@ -23,7 +23,7 @@
 - Foundry – Only fabricates ICs for other companies
 
 #### Silicon lifecycle
-<img width="646" height="541" alt="image" src="https://github.com/user-attachments/assets/7fcb828b-dfbd-4ff1-b2e8-97e7ae28cfdd" />
+<img width="541" height="541" alt="image" src="https://github.com/user-attachments/assets/7fcb828b-dfbd-4ff1-b2e8-97e7ae28cfdd" />
 
 #### Choosing the right package
 1. Application – Memory/logic, etc.; bandwidth decides speed and number of interconnects
