@@ -34,7 +34,7 @@
 6. Cost 
 
 <img width="1263" height="483" alt="image" src="https://github.com/user-attachments/assets/2fed2779-734c-459b-931e-af390548b3a5" />
-<br/>
+
  #### Packaging classification
  1. Through hole mounting - TO, DIP, PGA
  2. Surface mount technology
