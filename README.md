@@ -76,3 +76,11 @@
           - Example - CoWoS (Chip on Wafer on Substrate)
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/949ef62d-97d3-4504-9a24-a3872fadc33f" />
 
+## Module 2
+
+#### Supply chain
+1. Design house - IC Design (GDS II) - EDA Tools and foundry PDKs
+2. Wafer fabrication - Silicon wafers, gases, chemicals, materials, equipment
+3. *Package assembly and Test* - Individual ICs assembled in a package and tested
+4. Board assembly and test - Many packages on a board are assembled and tested
+5. Product assembly and test - Final product assembly and test
