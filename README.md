@@ -103,17 +103,17 @@
   - Package dicing <br/>
 ##### **Flip chip packaging**
   - Bump formation on Si
-      1. Before Reflow 
-        - Solder is deposited on UBM (Under Bump Metallization) on silicon
-        - Formed by electroplating / solder paste printing / ball placement
-        - Bump shape is irregular or column-like
-        - Solder is solid and mechanical strength is low
-      2. After Reflow
-        - Solder is melted and re-solidified
-        - Surface tension forms a uniform spherical bump
-        - Proper wetting to UBM occurs
-        - Strong mechanical and electrical joint
-        - Final bump height and diameter are defined
+      1. Before Reflow <br/>
+        - Solder is deposited on UBM (Under Bump Metallization) on silicon <br/>
+        - Formed by electroplating/solder paste printing / ball placement <br/>
+        - Bump shape is irregular or column-like <br/>
+        - Solder is solid, and the mechanical strength is low <br/>
+      2. After Reflow <br/>
+        - Solder is melted and re-solidified <br/>
+        - Surface tension forms a uniform spherical bump <br/>
+        - Proper wetting to UBM occurs <br/>
+        - Strong mechanical and electrical joint <br/>
+        - Final bump height and diameter are defined <br/>
   - Flipping the chip
   - Die is placed on the substrate (Substarte already has bond pad, and flux is applied on the pads)
   - To attach the solder balls, heat and pressure is applied - Thermocompression 
