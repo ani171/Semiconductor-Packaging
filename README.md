@@ -84,3 +84,44 @@
 3. *Package assembly and Test* - Individual ICs assembled in a package and tested
 4. Board assembly and test - Many packages on a board are assembled and tested
 5. Product assembly and test - Final product assembly and test
+
+#### Packaging process
+1. Wafer Preparation (ISO Class 7) – Wafers received in carriers and prepared for processing
+2. Wafer Inspection – Visual and defect inspection before processing
+3. Front-side Tape Lamination
+4. Wafer Back Grinding – Wafer thinned to required thickness, the circuit or patter is only on the top side, while the bottom silicon is only for mechanical strength, since package will provide this mechanical strength further, this silicon is removed.
+5. Tape frame mounting to wafer backside
+6. Wafer Dicing – Separation into individual dies using laser grooving or blade dicing or both
+##### **Wire bond packaging**
+  - Using wafer map, known good dies are picked and placed onto the substrate (leadframe or laminate)
+  - *Die attach* is performed using epoxy, the epoxy deposition pattern directly affects die attach quality and reliability
+  - After die attach, curing is performed
+  - Wire Bonding <br/>
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ccb5cf2b-4dd4-4cf6-b209-d0da41aa8ba3" /> <br/>
+  - Molding compound transfer - Encapsulation of die and wires using molding compound - Resin flow method
+  - Marking - Package labeling with part number, lot, and traceability information to identify the package
+  - Package dicing <br/>
+##### **Flip chip packaging**
+  - Bump formation on Si
+      1. Before Reflow 
+        - Solder is deposited on UBM (Under Bump Metallization) on silicon
+        - Formed by electroplating / solder paste printing / ball placement
+        - Bump shape is irregular or column-like
+        - Solder is solid and mechanical strength is low
+      2. After Reflow
+        - Solder is melted and re-solidified
+        - Surface tension forms a uniform spherical bump
+        - Proper wetting to UBM occurs
+        - Strong mechanical and electrical joint
+        - Final bump height and diameter are defined
+  - Flipping the chip
+  - Die is placed on the substrate (Substarte already has bond pad, and flux is applied on the pads)
+  - To attach the solder balls, heat and pressure is applied - Thermocompression 
+  - Solder Reflow
+  - Flux cleansing - Using solvent spray
+  - Underfill dispensing - Epoxy material filled between die and substrate to reduce thermo-mechanical stress and improve joint reliability
+  - Underfill cure
+  - Molding
+  - Marking
+  - Ball mounting on the substrate and reflow
+<img width="500" height="226" alt="image" src="https://github.com/user-attachments/assets/d29fa7e3-a1b4-4836-a00e-6d4850816707" />
