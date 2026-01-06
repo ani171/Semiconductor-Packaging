@@ -211,3 +211,5 @@
     - h1= 0.2mm
     - h2=0.305mm (h2 should be higher)
     - diameter = 0.025mm
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/c3e8b03e-5b6f-4e23-a047-d60a4470287f" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/49e767bf-6a25-4fbb-8f73-d27baabfdc33" />
