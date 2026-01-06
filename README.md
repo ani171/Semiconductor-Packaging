@@ -137,3 +137,43 @@
 - Dielectric is coated on the carrier
 - 1st RDL metal layer patterning, and is continued with dielectric and metal layers alternatively as per the requirement
 
+
+## Module 4
+
+- Testing at different stages
+    1. Wafer Probe Test – Electrical testing of dies on the wafer
+    2. Wafer Sorting – Classification of dies into good/bad bins based on test results
+    3. Package Testing – Electrical and functional testing of packaged ICs
+    4. System-Level Testing – Testing IC performance in real system conditions
+- Movement from processing zone (ISO Class 6-7) to Testing area ( Electrical, burn-in, and reliability chamber tests)
+### Package testing 
+1. Assembly open and short test
+2. Burn-in - Apply thermal and voltage stress to ensure early life reliability
+3. Final test - Cold and hot test for validating functional and parametric specs across various temperatures
+
+#### AOST
+- Quick test for shorts or opens on package leads or balls
+- To screen for massive electrical failures before leaving the assembly
+- Vision inspection is also done to check for damaged or missing balls/leads and other defects
+#### Burn-in test
+- Testing of package components under elevated(stressful) conditions
+- To identify Infant mortality failures before they reach customers
+- Parts are loaded from trays onto Burn-in boards and then into burn-in ovens during testing
+- Accelerates the failures by applying high voltage and high temperature stress
+- Defects like **dielectric and metallization failures, electromigration** can be detected
+- May result in shortening the total life span of components 
+<img width="500" height="545" alt="image" src="https://github.com/user-attachments/assets/d8b0bcfc-d50f-4cf9-8dc8-7ed25ae88ae2" />
+
+#### Final test
+- A temperature corner test to verify that the packaged product meets the specifications
+- Parts are loaded into temperature-controlled test fixtures during testing
+- Automatic test equipment (ATE) is used
+- ATPG is sent to the device under test
+- Yield, testing time, and test coverage are key performance indicators
+##### Parametric tests 
+- Measures current or voltage from the unit to ensure the circuits are performing within specified parameters
+##### Functional tests
+- Evaluate functionality of the unit under operating conditions
+##### Speed tests 
+- Assesses the speed of units according to data sheet specifications
+- Sorting is done based on speed
