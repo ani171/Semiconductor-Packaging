@@ -72,7 +72,7 @@ This GitHub repository serves as documentation for the 10-day [Semiconductor Pac
 <img width="1263" height="483" alt="image" src="https://github.com/user-attachments/assets/2fed2779-734c-459b-931e-af390548b3a5" />
 
  #### Packaging classification
-## 1. Through-Hole Mounting
+#### Through-Hole Mounting
 
 Through-hole mounting is a traditional method for attaching electronic components to a PCB, where component leads pass through holes in the board and are soldered on the opposite side. This method provides strong mechanical bonding and is suitable for high-reliability applications.
 
@@ -88,7 +88,7 @@ Through-hole mounting is a traditional method for attaching electronic component
 
 ---
 
-## 2. Surface Mount Technology (SMT)
+#### Surface Mount Technology (SMT)
 
 SMT allows components to be mounted directly onto the surface of a PCB without passing leads through holes. It enables compact designs, higher pin counts, and faster assembly.
 
@@ -105,37 +105,83 @@ SMT allows components to be mounted directly onto the surface of a PCB without p
 > **Notes:**  
 > - SMT packages enable miniaturization, automated assembly, and high-density PCB designs.  
 > - Selection depends on thermal requirements, pin count, and mechanical constraints.
-- Options for carrier: Leadframe, laminate, plastic, ceramic(for high temperature), organic RDL, silicon, glass
-- Options for interconnections - Wirebond(Stitch type), Bump/Solder
 
-#### Anatomy of packages
-- Leadframe: a thin metal frame that holds the silicon die and connects it to the outside world
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/6e1b71fe-7428-4ba8-b433-f2156fd5dad2" /> <br/>
-- Laminate: organic substrate with coarse metal routing and ground planes, used to interconnect die bumps to BGA balls and the PCB <br/>
-- Advanced package substrates: 
-    1. 2D Layer
-         - Two dies placed on the same substrate (e.g., FCBGA)
-         - Better than using two separate substrates
-         - Die-to-die communication goes via BGA → substrate → other die
-    2. 2.1D
-         - #### RDL
-           - Adds a Redistribution Layer (RDL) between die and substrate. RDL allows the rearrangement of the connectivity
-           - Die has very small bond pand size and at different locations, which has to be connected to the bond pads of the substarte which are in a different geometrical arrangement and have to be connected. RDL enables this connectivity
-           - RDL provides shorter internal connections
-           - Reduces signal path length compared to 2D
-    3. 2.3 D
-          - Uses an organic interposer between the die and substrate
-          - Helps fan-out high-density connections
-          - Designed to support multiple chips, while RDL works well for 2 dies, but becomes complex beyond that
-          - Organic interposer has dedicated power and ground planes
-    4. 2.5 D
-          - Uses a silicon interposer
-          - Passive TSV interposer, while in 3D we use an active TSV interposer 
-          - Silicon interposer with very fine metal layers, allowing signal lines to be routed extremely close to ground planes, enabling controlled impedance
-          - Fine metal routing + close ground planes create short return paths, reducing noise and crosstalk
-          - Compared to organic substrates with coarse metal and distant ground planes, 2.5D achieves much higher bandwidth and signal integrity
-          - Example - CoWoS (Chip on Wafer on Substrate)
+#### Advanced Package Substrates
+
+Advanced packaging techniques are used to integrate multiple dies on a single substrate or improve interconnect density, signal integrity, and bandwidth. Key approaches include 2D, 2.1D, 2.3D, and 2.5D packaging.  
+
+#### 2D Package
+
+| Feature | Description | Notes |
+|---------|-------------|-------|
+| **Die Placement** | Two dies placed on the same substrate (e.g., FCBGA). | Provides a single substrate for multiple dies instead of using two separate substrates. |
+| **Die-to-Die Communication** | Communication goes via BGA → substrate → other die. | Relatively longer signal paths than RDL or interposer-based designs. |
+
+#### 2.1D Package 
+
+| Feature | Description | Notes |
+|---------|-------------|-------|
+| **RDL (Redistribution Layer)** | Adds a layer between die and substrate to reroute connectivity. | Required when die bond pads are small and unevenly distributed compared to substrate pads. |
+| **Connectivity** | RDL rearranges die connections to match substrate geometry. | Provides shorter internal connections and improved routing compared to 2D. |
+| **Signal Path** | Reduces signal length, improving performance and reducing delay. | Particularly effective for two-die systems. |
+
+> **Note on RDL Manufacturing:**  
+> - RDL is typically a thin metal layer (Cu) deposited on a polymer layer.  
+> - Requires photolithography to define fine traces.  
+> - Enables high-density routing without increasing substrate size.  
+
+#### 2.3D Package 
+
+| Feature | Description | Notes |
+|---------|-------------|-------|
+| **Interposer** | Uses an organic interposer between die and substrate to fan out high-density connections. | Supports multiple chips; simpler than RDL for >2 dies. |
+| **Power/Ground** | Dedicated planes in interposer for power and ground. | Helps reduce IR drop and improves signal integrity. |
+| **Routing** | Organic interposer allows dense fan-out while maintaining manufacturability. | Becomes challenging beyond moderate pin counts compared to silicon interposer. |
+
+> **Note on Organic Interposer:**  
+> - Fabricated using laminated organic layers and thin metal traces.  
+> - Provides flexibility in routing and is cost-effective compared to silicon interposers.  
+
+
+#### 4. 2.5D Package 
+
+| Feature | Description | Notes |
+|---------|-------------|-------|
+| **Interposer** | Uses a silicon interposer with passive Through-Silicon Vias (TSVs) to connect die to substrate. | High-density connections with very fine metal layers. |
+| **Signal Integrity** | Close proximity of signal lines to ground planes enables controlled impedance and short return paths. | Reduces noise and crosstalk significantly compared to organic interposers. |
+| **Performance** | Achieves much higher bandwidth and signal integrity than organic substrates. | Example: CoWoS (Chip on Wafer on Substrate). |
+
+> **Note on Silicon Interposer Manufacturing:**  
+> - Interposer made from a silicon wafer with multiple fine metal layers.  
+> - TSVs (Through-Silicon Vias) connect top die pads to bottom substrate pads.  
+> - Provides high-density fan-out, short interconnects, and improved electrical performance.  
+
+
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/949ef62d-97d3-4504-9a24-a3872fadc33f" />
+
+#### Carrier Material Options
+
+| Carrier Type | Description | Typical Applications / Advantages |
+|--------------|-------------|---------------------------------|
+| **Leadframe** | Metal frame that supports the die and provides electrical connections via leads. Easy to manufacture and cost-effective. | Standard ICs, low-cost logic and memory packages |
+| **Laminate** | Layered organic material used as substrate. Lightweight and flexible, suitable for medium-power applications. | BGAs, QFNs, consumer electronics |
+| **Plastic** | Encapsulation material for protecting the die. Low-cost and widely used. | Standard IC packages, consumer electronics |
+| **Ceramic** | High-temperature resistant material. Excellent thermal conductivity and hermetic sealing. | Aerospace, military, high-power devices |
+| **Organic RDL** | Redistribution layer on organic substrate to reroute I/Os. Enables fine-pitch and advanced packaging. | High-density interposers, advanced BGA packages |
+| **Silicon** | Silicon interposer used as carrier for 2.5D/3D integration. Enables very high I/O density and performance. | High-performance computing, GPUs, FPGA stacking |
+| **Glass** | Transparent, rigid carrier for advanced packaging. Low thermal expansion and stable. | MEMS devices, optical sensors, specialty applications |
+
+#### Interconnection Options
+
+| Interconnection Type | Description | Typical Applications / Advantages |
+|--------------------|-------------|---------------------------------|
+| **Wirebond (Stitch Type)** | Thin metal wire (Au, Cu) connects die pads to package leads. Stitch type is robust and flexible for thermal expansion. | Standard ICs, TO packages, low- to medium-pin-count packages |
+| **Bump / Solder** | Solder or micro-bumps form connections between die and substrate, used in flip-chip assemblies. | High-density BGAs, CSPs, advanced 3D packages |
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/6e1b71fe-7428-4ba8-b433-f2156fd5dad2" /> <br/>
+
+> **Notes:**  
+> - Carrier selection depends on **thermal, mechanical, and electrical requirements**.  
 
 ## Module 2
 
@@ -147,15 +193,49 @@ SMT allows components to be mounted directly onto the surface of a PCB without p
 5. Product assembly and test - Final product assembly and test
 
 #### Packaging process
-1. Wafer Preparation (ISO Class 7) – Wafers received in carriers and prepared for processing
-2. Wafer Inspection – Visual and defect inspection before processing
-3. Front-side Tape Lamination
-4. Wafer Back Grinding – Wafer thinned to required thickness, the circuit or patter is only on the top side, while the bottom silicon is only for mechanical strength, since package will provide this mechanical strength further, this silicon is removed.
-5. Tape frame mounting to wafer backside
-6. Wafer Dicing – Separation into individual dies using laser grooving or blade dicing or both
+
+##### 1. Wafer Preparation (ISO Class 7)
+- Wafers are received in carriers and prepared for processing in a controlled cleanroom environment.
+- ISO Class 7 ensures low particulate contamination to prevent defects during subsequent steps.
+
+##### 2. Wafer Inspection
+- Visual and automated inspection is performed to detect defects or contamination before processing.
+- Ensures only high-quality wafers proceed to the next stages.
+
+| Test Type | Purpose | Process | Advantages | Applications |
+|-----------|---------|--------|------------|-------------|
+| **Wafer Automated Test (WAT)** | Detect visual defects or process-related issues on the wafer surface before electrical testing. | - Automated optical inspection (AOI) scans the wafer for defects like scratches, contamination, pattern misalignment, or missing features. <br> - Machine vision compares the wafer to a reference pattern to locate anomalies. | - Non-contact and high-speed inspection. <br> - Identifies defective areas early, saving cost by preventing the processing of bad dies. | - Early detection of lithography or etching defects. <br> - Monitoring yield trends in manufacturing. |
+| **Wafer Probe Test (Electrical Test)** | Verify the electrical functionality of each die before dicing. | - A **probe card** with tiny needle contacts each die pad. <br> - Electrical signals are applied, and die responses are measured. <br> - Dies are classified as **good (pass)** or **bad (fail)**. | - Early identification of faulty dies prevents packaging of defective ICs. <br> - Provides data for yield analysis and process optimization. | - Logic ICs, memory ICs, and analog/mixed-signal devices. <br> - Performed at the wafer level before assembly and packaging. |
+
+##### 3. Front-Side Tape Lamination
+- Protective tape is applied on the wafer front-side to protect circuitry during thinning and handling.
+- Prevents mechanical damage and contamination during back grinding and dicing.
+
+##### 4. Wafer Back Grinding
+- The wafer is thinned to the required thickness.
+- The circuit/pattern is only on the top side; the bottom silicon is primarily for mechanical support.
+- Thinning reduces package height and prepares wafers for assembly while maintaining die integrity.
+
+<img width="1395" height="489" alt="image" src="https://github.com/user-attachments/assets/464dbb35-47f5-41dd-9910-181ad9f974eb" />
+
+##### 5. Tape Frame Mounting to Wafer Backside
+- The thinned wafer is mounted onto a tape frame for mechanical support.
+- Ensures stability and prevents damage during dicing.
+
+##### 6. Wafer Dicing
+- Wafers are separated into individual dies using laser grooving, blade dicing, or a combination of both.
+- Precision dicing ensures minimal chipping and maintains die quality for packaging.
+
+| Dicing Type | Description | Advantages | Typical Applications |
+|-------------|-------------|------------|--------------------|
+| **Blade Dicing** | Mechanical dicing using a diamond-tipped blade to cut the wafer along predefined streets. | - Simple and cost-effective <br> - High throughput for standard wafers | Standard logic ICs, memory ICs, low-thickness wafers |
+| **Laser Dicing** | Uses a focused laser beam to cut or scribe the wafer. It can be a UV or an IR laser, depending on the material. | - Contactless, reducing mechanical stress <br> - Can dice very thin or fragile wafers | High-precision ICs, MEMS, advanced packaging |
+| **Stealth Dicing** | Laser creates a modified layer inside the wafer that allows it to be separated mechanically along the laser path. | - Minimal chipping <br> - High wafer strength retained <br> - Suitable for thin wafers | High-performance chips, advanced memory, sensitive wafers |
+| **Plasma Dicing** | Wafer is etched along streets using plasma to separate dies without mechanical contact. | - No mechanical stress <br> - High precision and minimal chipping <br> - Suitable for ultra-thin wafers | MEMS, sensors, high-reliability devices |
+
 ##### **Wire bond packaging**
-  - Using wafer map, known good dies are picked and placed onto the substrate (leadframe or laminate)
-  - *Die attach* is performed using epoxy, the epoxy deposition pattern directly affects die attach quality and reliability
+  - Using a wafer map, known good dies are picked and placed onto the substrate (leadframe or laminate)
+  - *Die attach* is performed using epoxy; the epoxy deposition pattern directly affects die attach quality and reliability
   - After die attach, curing is performed
   - Wire Bonding <br/>
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/ccb5cf2b-4dd4-4cf6-b209-d0da41aa8ba3" /> <br/>
@@ -175,16 +255,21 @@ SMT allows components to be mounted directly onto the surface of a PCB without p
         - Proper wetting to UBM occurs <br/>
         - Strong mechanical and electrical joint <br/>
         - Final bump height and diameter are defined <br/>
-  - Flipping the chip
-  - Die is placed on the substrate (Substrate already has a bond pad, and flux is applied on the pads)
-  - To attach the solder balls, heat and pressure are applied - Thermocompression 
-  - Solder Reflow
-  - Flux cleansing - Using solvent spray
-  - Underfill dispensing - Epoxy material filled between die and substrate to reduce thermo-mechanical stress and improve joint reliability
-  - Underfill cure
-  - Molding
-  - Marking
-  - Ball mounting on the substrate and reflow
+<br/>
+
+| Step | Process | Description |
+|-----|--------|-------------|
+| 1 | **Flipping the Chip** | Die is flipped so solder bumps face downward toward the substrate. |
+| 2 | **Die Placement** | Die is placed on the substrate, which already has matching bond pads. Flux is applied to assist solder wetting. |
+| 3 | **Thermocompression Attach** | Heat and pressure are applied to attach the solder bumps to substrate pads. |
+| 4 | **Solder Reflow** | Solder melts and forms reliable electrical and mechanical joints between die and substrate. |
+| 5 | **Flux Cleansing** | Residual flux is removed using solvent spray to prevent corrosion and reliability issues. |
+| 6 | **Underfill Dispensing** | Epoxy underfill is injected between die and substrate to reduce thermo-mechanical stress and improve joint reliability. |
+| 7 | **Underfill Cure** | Underfill material is cured to achieve mechanical strength and long-term reliability. |
+| 8 | **Molding** | Encapsulation material is applied to protect the die and interconnections. |
+| 9 | **Marking** | Package is marked with identification, lot number, and traceability information. |
+| 10 | **Ball Mounting & Reflow** | Solder balls are mounted on the substrate side and reflowed to enable PCB-level connections (BGA). |
+
 <img width="500" height="226" alt="image" src="https://github.com/user-attachments/assets/d29fa7e3-a1b4-4836-a00e-6d4850816707" />
 
 #### Wafer-level Packaging
