@@ -184,12 +184,14 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
 
 ## Module 2
 
-#### Supply chain
-1. Design house - IC Design (GDS II) - EDA Tools and foundry PDKs
-2. Wafer fabrication - Silicon wafers, gases, chemicals, materials, equipment
-3. *Package assembly and Test* - Individual ICs assembled in a package and tested
-4. Board assembly and test - Many packages on a board are assembled and tested
-5. Product assembly and test - Final product assembly and test
+### Supply chain
+| Stage | Description | Key Activities | Industry Focus |
+|------|-------------|----------------|----------------|
+| **1. Design House** | IC design is performed using EDA tools, resulting in a finalized GDS II file for fabrication. | - RTL, logic, and physical design <br> - Verification (functional, timing, power) <br> - Use of foundry PDKs and design rules | Performance, power, area (PPA), design correctness |
+| **2. Wafer Fabrication** | ICs are fabricated on silicon wafers in a semiconductor foundry. | - Silicon wafer processing <br> - Lithography, etching, deposition <br> - Use of gases, chemicals, materials, and advanced equipment | Yield, process control, defect reduction |
+| **3. Package Assembly & Test** | Individual dies are assembled into packages and electrically tested. | - Wafer probing, dicing <br> - Die attach, wirebond or flip-chip <br> - Package test and burn-in | Reliability, thermal performance, cost |
+| **4. Board Assembly & Test** | Multiple packaged ICs are assembled onto a PCB and validated as a system. | - SMT/through-hole assembly <br> - Reflow soldering <br> - Board-level functional and electrical testing | Signal integrity, manufacturability |
+| **5. Product Assembly & Test** | Final product is assembled and validated before shipment. | - Mechanical integration <br> - Firmware/software loading <br> - System-level and environmental testing | Product quality, compliance, customer reliability |
 
 #### Packaging process
 
@@ -415,46 +417,99 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
 
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/dd32072e-ed58-4a50-aac6-3cf5487b69ce" />
 
-
 ## Module 4
 
 - Testing at different stages
-    1. Wafer Probe Test – Electrical testing of dies on the wafer
-    2. Wafer Sorting – Classification of dies into good/bad bins based on test results
-    3. Package Testing – Electrical and functional testing of packaged ICs
-    4. System-Level Testing – Testing IC performance in real system conditions
-- Movement from processing zone (ISO Class 6-7) to Testing area ( Electrical, burn-in, and reliability chamber tests)
+    1. Wafer Probe Test 
+        - Electrical testing is performed directly on dies while they are still on the wafer.
+        - Probe cards make temporary contact with die pads to verify basic functionality.
+        - Key parameters such as continuity, leakage, timing margins, and voltage limits are checked.
+        - Identifies Known Good Dies (KGDs) before dicing and packaging.
+        - Prevents expensive packaging of faulty dies.
+    2. Wafer Sorting 
+        - Test results from wafer probe are used to classify dies into **bins** (good, marginal, bad).
+        - A wafer map is generated indicating the exact location of good and bad dies.
+        - Sorting information is used by die pick-and-place machines during assembly.
+        - Enables yield tracking and process tuning at the foundry.
+        - Bad dies are automatically skipped during packaging.
+    3. Package Testing 
+        - Electrical and functional tests are performed after the die is assembled into a package.
+        - Verifies solder joints, wire bonds, flip-chip connections, and package integrity.
+        - Tests include parametric tests, functional vectors, and sometimes burn-in.
+        - Detects failures introduced during assembly or packaging.
+        - Ensures only fully functional ICs move to board-level assembly.
+    4. System-Level Testing
+        - ICs are tested in **real operating conditions** on evaluation boards or end systems.
+        - Validates performance under actual voltage, temperature, and workload scenarios.
+        - Catches issues not visible in standalone IC tests (timing interactions, thermal stress).
+        - Often used for automotive, networking, and high-reliability products.
+        - Acts as the final quality gate before mass production or customer shipment.
+
 ### Package testing 
 1. Assembly open and short test
 2. Burn-in - Apply thermal and voltage stress to ensure early life reliability
 3. Final test - Cold and hot test for validating functional and parametric specs across various temperatures
 
-#### AOST
-- Quick test for shorts or opens on package leads or balls
-- To screen for massive electrical failures before leaving the assembly
-- Vision inspection is also done to check for damaged or missing balls/leads and other defects
-#### Burn-in test
-- Testing of package components under elevated(stressful) conditions
-- To identify Infant mortality failures before they reach customers
-- Parts are loaded from trays onto Burn-in boards and then into burn-in ovens during testing
-- Accelerates the failures by applying high voltage and high temperature stress
-- Defects like **dielectric and metallization failures, electromigration** can be detected
-- May result in shortening the total life span of components 
-<img width="500" height="545" alt="image" src="https://github.com/user-attachments/assets/d8b0bcfc-d50f-4cf9-8dc8-7ed25ae88ae2" />
+| Test Stage | Purpose | What is Done in Industry | Key Outcomes |
+|-----------|---------|--------------------------|--------------|
+| **AOST (Assembly Open Short Test)** | Quickly screen for major assembly defects. | - Electrical check for opens and shorts on package leads or solder balls <br> - Vision inspection to detect missing, damaged, or misaligned balls/leads | - Early rejection of gross failures <br> - Prevents bad parts from leaving assembly |
+| **Burn-in Test** | Identify early-life (infant mortality) failures under stress. | - Devices are loaded from trays onto burn-in boards <br> - Boards are placed inside burn-in ovens <br> - High temperature and high voltage are applied for extended duration | - Detects dielectric breakdown, metallization defects, electromigration <br> - Improves long-term reliability <br> - May slightly reduce total component lifespan |
+| **Final Test** | Ensure packaged IC meets datasheet specifications at temperature corners. | - Devices tested at hot/cold/room temperatures <br> - Loaded into temperature-controlled fixtures <br> - Automatic Test Equipment (ATE) applies test patterns (ATPG) | - Final pass/fail decision <br> - Yield, test time, and coverage are key KPIs |
 
-#### Final test
-- A temperature corner test to verify that the packaged product meets the specifications
-- Parts are loaded into temperature-controlled test fixtures during testing
-- Automatic test equipment (ATE) is used
-- ATPG is sent to the device under test
-- Yield, testing time, and test coverage are key performance indicators
-##### Parametric tests 
-- Measures current or voltage from the unit to ensure the circuits are performing within specified parameters
-##### Functional tests
-- Evaluate functionality of the unit under operating conditions
-##### Speed tests 
-- Assesses the speed of units according to data sheet specifications
-- Sorting is done based on speed
+#### Final Test categories
+| Test Type | Description | Industry Objective |
+|----------|-------------|-------------------|
+| **Parametric Tests** | Measure voltage, current, leakage, and threshold parameters. | Ensure circuits operate within specified electrical limits. |
+| **Functional Tests** | Verify correct logical and operational behavior under normal conditions. | Confirm full functionality of the IC. |
+| **Speed Tests** | Measure maximum operating frequency and timing margins. | Speed binning and product segmentation based on performance grades. |
+
+#### Bathtub Curve – Failure Rate vs Time
+The Bathtub Curve is a reliability model widely used in the semiconductor industry to describe how the **failure rate of an electronic device changes over its lifetime**. It helps manufacturers understand device behavior, plan testing strategies, and ensure long-term product reliability.
+
+<img width="1000" height="545" alt="image" src="https://github.com/user-attachments/assets/d8b0bcfc-d50f-4cf9-8dc8-7ed25ae88ae2" />
+
+1. Early Life Region (Infant Mortality)
+- This phase shows a **high initial failure rate** that decreases rapidly with time.
+- Failures occur due to:
+  - Latent manufacturing defects
+  - Process variations
+  - Weak interconnects or marginal devices
+- Devices that survive this phase are generally robust and stable.
+- Eliminating early failures prevents defective products from reaching customers.
+- Improves outgoing quality and reduces warranty returns.
+
+2. Useful Life Region (Normal Operating Period)
+- Failure rate remains **low and nearly constant**.
+- Devices operate within specified electrical and environmental limits.
+- Failures are random and not related to manufacturing defects.
+- This region represents the guaranteed operating lifetime of the product.
+- Reliability predictions, field failure rates, and quality metrics are based on this phase.
+- Ensures customer confidence and consistent system performance.
+3. Wear-Out Region (End of Life)
+- Failure rate increases with time due to aging mechanisms.
+- Common causes include:
+  - Electromigration
+  - Dielectric breakdown
+  - Thermal and mechanical fatigue
+- Devices eventually degrade beyond acceptable limits.
+- Helps define product lifetime and reliability limits.
+- Guides material selection, design margins, and qualification standards.
+- Prevents unexpected failures in long-term applications such as automotive and aerospace systems.
+
+### Automatic Test Equipment (ATE)
+
+- Used to automatically test integrated circuits for electrical correctness, performance, and reliability at different manufacturing stages.
+- Applies input signals to the device under test (DUT) and measures output responses to verify expected behavior.
+- Enables high-speed, high-volume testing, making it suitable for mass semiconductor production.
+- Ensures each IC meets datasheet specifications before shipment to customers.
+- Helps identify manufacturing defects early, reducing field failures and warranty costs.
+- Provides consistent and repeatable test results, minimizing human error.
+- Test data from ATE is used for yield analysis, process monitoring, and continuous improvement.
+- Plays a critical role in maintaining product quality and reliability in automotive, consumer, and industrial electronics.
+<figure>
+  <img width="998" height="529" alt="image" src="https://github.com/user-attachments/assets/bc80dcdd-950f-42a7-9b3b-db930ba4ae3e">
+  <figcaption><em>Figure:Testamatic Systems: Automated Test Equipment and Industrial Automation</em></figcaption>
+</figure>/>
 
 
 ## Module 5
