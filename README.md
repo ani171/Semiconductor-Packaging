@@ -374,6 +374,11 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
 - Open the Icepak Layout
 - Click the Icepak tab in the top toolbar
 - This launches the Icepak layout environment
+
+|   |
+|---|
+|<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/38ff30d0-6e11-448d-a16b-dbd35bf0218e" />|
+
 #### Step 3: 
 - Create a Flip-Chip BGA Package
 - Navigate to: `Icepak → Toolkit → Geometry → Packages → Flipchip_BGA`
@@ -387,15 +392,10 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
 - Click OK to generate the 3D model
 - The Flip-Chip BGA package will appear in the working space
 
-<p align="left">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/b04ea4e2-0967-4292-a2c0-4c61547a2f7c" />
-</p>
-<p align="left">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/91161ca0-e78c-4f65-80a4-ab4bd31fcdb4" />
-</p>
-<p align="left">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/de148fc2-e206-4016-b658-66b7dc75312e" />
-</p>
+|   |   |   |
+|---|---|---|
+| <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/b04ea4e2-0967-4292-a2c0-4c61547a2f7c" /> | <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/91161ca0-e78c-4f65-80a4-ab4bd31fcdb4" /> | <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/de148fc2-e206-4016-b658-66b7dc75312e" /> |
+
 
 #### Step 4:
 - In the Model Tree, expand the Solids section
@@ -405,19 +405,29 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
     - Underfill
     - Other package elements
 
+|   |   |
+|---|---|
+| <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/0a9afe1a-82f8-4fe5-8b60-dd030045397a" />| <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/1ab05be0-2f96-45c0-bdb6-c9bd5e3c438c" /> | <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/eff79f80-fa28-4dd8-bca7-903ee1331433" /> |
+
 #### Step 5: 
 - Assign Thermal Power
 - Navigate to: `Project Manager → Thermal`
 - Enter the Power value (e.g., 1 W)
 - Click OK
+|   |
+|---|
+| <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/17658342-00e6-4bb5-8ac1-0282af42543f" /> |
 
 #### Step 6: 
 - In Solids, select Flipchip-BGA1_substrate
 - `Right-click → Assign Thermal → Source`
 - In the dialog box:
-    - Set Thermal Condition to Ambient Temperature
+    - Set Thermal Condition to Fixed Temperature
 - Click OK
 - Delete any unnecessary thermal elements (e.g., Flipchip_BGA_trace1) under the Thermal node
+|   |
+|---|
+| <img width="1484" height="1299" alt="image" src="https://github.com/user-attachments/assets/dc91fbbb-de88-4e82-8e26-6914bbd1dcdb" /> |
 
 #### Step 7: 
 - Assign Temperature Monitors
@@ -427,12 +437,19 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
 - Repeat the same steps for:
     - Die
     - Underfill
+|   |   |   |
+|---|---|---|
+| <img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/3b4439e2-3c9b-459d-842b-76500e81bfbc" />| <img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/c7368faf-ead4-4e6e-9b8e-309d3e36931f" /> | <img width="800" height="1000" alt="image" src="https://github.com/user-attachments/assets/41afeaef-24a9-4077-8ca2-b34347690060" /> |
+
 #### Step 8: 
 - Generate Mesh
 - Navigate to the Mesh tab
 - Click: `Simulation → Generate Mesh`
 - Save the file when prompted
 - Click OK
+|   |
+|---|
+| <img width="2025" height="1224" alt="image" src="https://github.com/user-attachments/assets/ecf2fd8f-132a-4814-8b61-17591282a380" /> |
 
 #### Step 9: 
 - Inspecting Mesh Quality
@@ -441,19 +458,18 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
 - Verify mesh parameters such as:
     - Face Alignment
     - Skewness
-    - Volume
-<p align="left">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/e881404d-4cd9-4bf8-a890-81b56d7a1b3e" />
-</p>
-<p align="left">
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/d3672a0e-3839-4fdf-9e6d-0b3a525c94dd" />
-</p>
+|   |   |
+|---|---|
+| <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/e881404d-4cd9-4bf8-a890-81b56d7a1b3e" /> | <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/d3672a0e-3839-4fdf-9e6d-0b3a525c94dd" /> |
+
 
 #### Step 10: 
 - Click Validate from the top menu bar
 - Ensure all checks return green ticks
 - This confirms the model is ready for simulation
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/84e7e7aa-6f37-4141-854b-9c38afea6ed2" />
+|   |
+|---|
+| <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/84e7e7aa-6f37-4141-854b-9c38afea6ed2" /> |
 
 #### Step 11: 
 - Click Analyze All from the top toolbar
@@ -466,8 +482,9 @@ Advanced packaging techniques are used to integrate multiple dies on a single su
     - Under Surface Smoothing, enable Gaussian Smoothing
 - Click OK, then Done
 
-
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/dd32072e-ed58-4a50-aac6-3cf5487b69ce" />
+|   |
+|---|
+| <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/dd32072e-ed58-4a50-aac6-3cf5487b69ce" /> |
 
 ## Module 4
 
