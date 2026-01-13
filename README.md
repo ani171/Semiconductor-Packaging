@@ -618,6 +618,10 @@ The main focus of this lab exercise is to build the complete cross-section of a 
 - Launch ANSYS Electronics Desktop
 - Select Q3D Layout Design to create a new project
 
+|   |
+|---|
+| <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/c9498c4d-1f8e-457a-9745-8845fe8cf57b" /> |
+
 #### Step 2: Create the Die
 - Navigate to: `Modeler → Surface → Rectangle`
 - Draw a rectangular surface to represent the die
@@ -636,36 +640,40 @@ The main focus of this lab exercise is to build the complete cross-section of a 
 - Rename the object to substrate
 - Position the die on top of the substrate by setting its coordinates to: (x = –1, y = –1, z = –0.1)
 
+|   |
+|---|
+|<img width="500" height="649" alt="image" src="https://github.com/user-attachments/assets/00f652e9-0f4c-43c2-98e1-cacbdf2a5a37" />|
+
+
 #### Step 4: Add Die Attach Layer
 - Create a rectangle matching the die dimensions at the origin (0, 0, 0)
 - Set the thickness to –0.1 mm
 - Assign the material modified_epoxy to enable thermal conductivity analysis
 
-#### Step 5: Add Die Pad
+#### Step 5: Add Die Pad and Substrate Pad
 - Create a thin rectangular surface to represent the die pad
 - Set the thickness to 0.005 mm
 
-#### Step 6: Create Bond Pads
-- Add bond pads on both the die and the substrate
-- These pads act as electrical connection points for wire bonding
-- Assign a conductive material such as gold or aluminum
+
+|   |   |   |   |
+|---|---|---|---|
+| <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a2411daa-59cf-4f07-b4e0-259e099480ca" />| <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/35aaa2a4-82b4-4e66-a4fb-5aa233c925cd" /> |<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/2b8c7c41-a299-4026-b2fe-4d376c5f9a67" /> | <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/bda5df8d-2ddb-4fbe-b73a-e7719d241373" /> |
+
 
 #### Step 7: Connect Pads Using Bond Wires
 - Use the Bondwire tool
 - Connect the die bond pads to the substrate pads
 - Assign gold as the bond wire material
 
+|   | 
+|---|
+| <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/9a6ae63c-69c5-4d80-bd8d-c475003dcd71" /> |
+
 #### Step 8: Add Mold Compound
 - Create a rectangular mold compound to encapsulate the die and bond wires
 - Set the mold thickness to 1.2 mm
 - Assign an epoxy molding compound (EMC) material
 
-<p align="left">
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/c3e8b03e-5b6f-4e23-a047-d60a4470287f" />
-</p>
-<p align="left">
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/49e767bf-6a25-4fbb-8f73-d27baabfdc33" />
-</p>
-<p align="left">
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/4c97774c-db26-4fb2-bb45-72839ddf0468" />
-</p>
+|   | 
+|---|
+| <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/2ebf7eb3-493a-4b94-ae72-cacbe873dab1" /> |
